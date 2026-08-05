@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from .forms import RegisterForm, LoginForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == "POST":
@@ -31,7 +32,7 @@ def user_login(request):
 
             if user is not None:
                 login(request, user)
-                return render(request, "accounts/home.html")
+                return redirect("home")
 
     else:
         form = LoginForm()
@@ -41,3 +42,9 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect("login")
+
+
+
+@login_required
+def home(request):
+    return render(request, "accounts/home.html")

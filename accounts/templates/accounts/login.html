@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
 
 <h2>Login</h2>
 
@@ -26,5 +23,9 @@
     <button type="submit">Login</button>
 </form>
 
-</body>
-</html>
+<p>
+    Don't have an account?
+    <a href="{% url 'register' %}">Register</a>
+</p>
+
+{% endblock %}
