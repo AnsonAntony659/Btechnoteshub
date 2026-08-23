@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>{{ course.name }} - Departments</h2>
+
+<ul>
+    {% for department in departments %}
+        <li>
+    <a href="{% url 'scheme_list' department.id %}">
+        {{ department.name }}
+    </a>
+        </li>
+    {% empty %}
+        <li>No departments found.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -6,7 +6,11 @@
 
 <ul>
     {% for course in courses %}
-        <li>{{ course.name }}</li>
+        <li>
+    <a href="{% url 'department_list' course.id %}">
+        {{ course.name }}
+    </a>
+</li>
     {% empty %}
         <li>No courses found.</li>
     {% endfor %}
