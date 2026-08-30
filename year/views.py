@@ -18,3 +18,16 @@ def year_list(request, scheme_id):
         "year/year_list.html",
         context,
     )
+
+
+
+
+
+def year_detail(request, year_id):
+    year = get_object_or_404(Year, id=year_id)
+
+    return render(
+        request,
+        "year/year_detail.html",
+        {"year": year},
+    )

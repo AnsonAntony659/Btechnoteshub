@@ -10,12 +10,14 @@
     <h2>Select Year</h2>
 
     {% for year in years %}
-        <a href="#">
-            Year {{ year.number }}
-        </a>
+   <a href="/semesters/{{ year.id }}/">
+    Year {{ year.number }}
+    </a>
+    <br>
     {% empty %}
         <p>No years available for this scheme.</p>
     {% endfor %}
 
 </body>
 </html>
+

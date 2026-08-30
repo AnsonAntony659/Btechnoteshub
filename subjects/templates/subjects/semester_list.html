@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Semesters</title>
+</head>
+<body>
+
+    <h1>Year {{ year.number }}</h1>
+
+    <h2>Select Semester</h2>
+
+    {% for semester in semesters %}
+        <a href="#">
+            Semester {{ semester.number }}
+        </a>
+        <br>
+    {% empty %}
+        <p>No semesters available for this year.</p>
+    {% endfor %}
+
+</body>
+</html>
