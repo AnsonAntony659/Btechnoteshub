@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Department,Semester
+from django.shortcuts import render, get_object_or_404
+from .models import Department,Semester,Subject
 from year . models import Year
 from courses.models import Course
 
@@ -39,4 +39,19 @@ def semester_list(request, year_id):
         request,
         "subjects/semester_list.html",
         context,
+    )
+
+
+def subject_list(request, semester_id):
+    semester = get_object_or_404(Semester, id=semester_id)
+
+    subjects = Subject.objects.filter(semester=semester)
+
+    return render(
+        request,
+        "subjects/subject_list.html",
+        {
+            "semester": semester,
+            "subjects": subjects,
+        },
     )

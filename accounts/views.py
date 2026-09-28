@@ -46,5 +46,5 @@ def user_logout(request):
 
 
 @login_required
-def home(request):
+def accounts(request):
     return render(request, "accounts/home.html")

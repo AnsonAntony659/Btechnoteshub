@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/department_list.css' %}">
+
+{% endblock %}
+
 {% block content %}
 
 <h2>{{ course.name }} - Departments</h2>

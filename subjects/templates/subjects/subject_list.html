@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/subject_list.css' %}">
+{% endblock %}
+
+{% block content%}
+
+    <h1>Semester {{ semester.number }}</h1>
+
+    <h2>Subjects</h2>
+
+    <ul>
+    {% for subject in subjects %}
+    <li>
+        <a href="{% url 'note_list' subject.id %}">
+            {{ subject.code }} - {{ subject.name }}
+        </a>
+    </li>
+    {% empty %}
+    <li>No subjects available for this semester.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
