@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
@@ -18,7 +20,7 @@
             Syllabus and Study Materials.
         </p>
 
-        <a href="#" class="btn btn-primary btn-lg">
+        <a href="{% url 'university_list' %}" class="btn btn-primary btn-lg">
             Explore Notes
         </a>
 

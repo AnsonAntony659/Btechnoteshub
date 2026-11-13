@@ -1,0 +1,86 @@
+/* static/css/home.css */
+
+:root {
+    --focus: rgba(15, 118, 110, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --focus: rgba(45, 212, 191, 0.3);
+    }
+}
+
+/* Hero row */
+.row.align-items-center {
+    min-height: calc(100vh - 160px);
+    row-gap: 32px;
+    padding: 24px 0;
+}
+
+/* Heading */
+h1.display-4 {
+    margin-bottom: 16px;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--text);
+}
+
+/* Intro text */
+p.lead {
+    max-width: 34ch;
+    margin-bottom: 28px;
+    font-size: 1.15rem;
+    color: var(--muted);
+}
+
+/* Main button (overrides Bootstrap's blue) */
+.btn-primary {
+    --bs-btn-bg: var(--accent);
+    --bs-btn-border-color: var(--accent);
+    --bs-btn-hover-bg: var(--accent-hover);
+    --bs-btn-hover-border-color: var(--accent-hover);
+    --bs-btn-active-bg: var(--accent-hover);
+    --bs-btn-active-border-color: var(--accent-hover);
+    --bs-btn-color: #ffffff;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-focus-shadow-rgb: 15, 118, 110;
+    padding: 12px 28px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn-primary {
+        --bs-btn-color: #06201d;
+        --bs-btn-hover-color: #06201d;
+        --bs-btn-active-color: #06201d;
+        --bs-btn-focus-shadow-rgb: 45, 212, 191;
+    }
+}
+
+/* Image */
+.row.align-items-center img {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Stack the two columns on phones and tablets */
+@media (max-width: 767.98px) {
+    .row.align-items-center {
+        min-height: 0;
+    }
+
+    .row.align-items-center > .col-6 {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    p.lead {
+        max-width: none;
+    }
+}

@@ -1,21 +1,22 @@
-{%  extends "base.html"%}
+{% extends "base.html" %}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/semester_list.css' %}">
 {% endblock %}
 
-{% block content%}
+{% block content %}
     <h1>Year {{ year.number }}</h1>
 
     <h2>Select Semester</h2>
 
-   {% for semester in semesters %}
-    <a href="{% url 'subject_list' semester.id %}">
-        Semester {{ semester.number }}
-    </a>
-    <br>
-{% empty %}
-    <p>No semesters available.</p>
-{% endfor %}
+    {% for semester in semesters %}
+        <a href="{% url 'subject_list' semester.id %}">
+            Semester {{ semester.number }}
+        </a>
+        <br>
+    {% empty %}
+        <p>No semesters available.</p>
+    {% endfor %}
 
-{% endblock%}
+{% endblock %}

@@ -1,0 +1,82 @@
+/* static/css/year_list.css */
+
+:root {
+    --focus: rgba(15, 118, 110, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --focus: rgba(45, 212, 191, 0.3);
+    }
+}
+
+/* Scheme name */
+.container > h1 {
+    margin: 24px 0 4px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--text);
+}
+
+/* "Select Year" */
+.container > h2 {
+    margin: 0 0 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+/* The template puts a <br> after every link; spacing is handled by margins */
+.container > br {
+    display: none;
+}
+
+/* Year links */
+.container > a[href^="/semesters/"] {
+    display: block;
+    max-width: 480px;
+    margin-bottom: 12px;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.container > a[href^="/semesters/"]:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transform: translateX(2px);
+}
+
+.container > a[href^="/semesters/"]:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* "No years available" message */
+.container > p {
+    max-width: 480px;
+    padding: 16px 20px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .container > a[href^="/semesters/"] {
+        transition: none;
+    }
+
+    .container > a[href^="/semesters/"]:hover {
+        transform: none;
+    }
+}

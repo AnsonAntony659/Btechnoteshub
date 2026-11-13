@@ -1,0 +1,29 @@
+/* static/css/year_detail.css */
+
+/* Year heading */
+.container > h1 {
+    margin: 24px 0 4px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--text);
+}
+
+/* "Semesters" */
+.container > h2 {
+    margin: 0 0 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+/* Placeholder message */
+.container > p {
+    max-width: 480px;
+    margin-bottom: 48px;
+    padding: 16px 20px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+}

@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ year }}</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-    <h1>{{ year }}</h1>
+{% block content %}
 
-    <h2>Semesters</h2>
+<h1>Year {{ year.number }}</h1>
 
-    <p>Semesters for {{ year }} will appear here.</p>
+<h2>Select Semester</h2>
 
-</body>
-</html>
+{% for semester in semesters %}
+    <a href="{% url 'subject_list' semester.id %}">
+        Semester {{ semester.number }}
+    </a>
+    <br>
+{% empty %}
+    <p>No semesters available.</p>
+{% endfor %}
+
+{% endblock %}

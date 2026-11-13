@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
  {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/year_list.css' %}">
 {% endblock %}
@@ -9,13 +11,13 @@
 
     <h2>Select Year</h2>
 
-    {% for year in years %}
-   <a href="/semesters/{{ year.id }}/">
-    Year {{ year.number }}
+{% for year in years %}
+    <a href="{% url 'year_detail' year.id %}">
+        Year {{ year.number }}
     </a>
     <br>
-    {% empty %}
-        <p>No years available for this scheme.</p>
-    {% endfor %}
+{% empty %}
+    <p>No years available for this scheme.</p>
+{% endfor %}
 
-{% endblock %}
+{% endblock%}

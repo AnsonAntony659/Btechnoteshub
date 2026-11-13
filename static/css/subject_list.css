@@ -1,0 +1,92 @@
+/* static/css/subject_list.css */
+
+:root {
+    --focus: rgba(15, 118, 110, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --focus: rgba(45, 212, 191, 0.3);
+    }
+}
+
+/* "Semester N" */
+.container > h1 {
+    margin: 24px 0 4px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--text);
+}
+
+/* "Subjects" */
+.container > h2 {
+    margin: 0 0 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+/* List reset */
+.container > ul {
+    max-width: 640px;
+    margin: 0 0 48px;
+    padding: 0;
+    list-style: none;
+}
+
+.container > ul > li {
+    margin-bottom: 12px;
+}
+
+/* Subject links as cards */
+.container > ul > li > a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.container > ul > li > a:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transform: translateX(2px);
+}
+
+.container > ul > li > a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* "No subjects available" (a plain <li> with no link) */
+.container > ul > li:not(:has(a)) {
+    padding: 16px 20px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+    .container > ul > li > a {
+        padding: 14px 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .container > ul > li > a {
+        transition: none;
+    }
+
+    .container > ul > li > a:hover {
+        transform: none;
+    }
+}

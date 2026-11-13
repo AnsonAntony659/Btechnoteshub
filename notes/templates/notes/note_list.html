@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/note_list.css' %}">
 {% endblock %}
@@ -16,6 +18,11 @@
                     {{ note.title }}
                 </a>
             </li>
+            
+                <a href="{{ note.file.url }}" target="_blank"  view>
+                    {{ note.title}}
+                </a>
+            
         {% empty %}
             <li>No notes available for this subject.</li>
         {% endfor %}
